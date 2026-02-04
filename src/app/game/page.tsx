@@ -1,23 +1,22 @@
 'use client';
 
-import { telegramWebApp } from '@/shared/utils/telegramWebApp';
 import React from 'react';
-import { Telegram } from 'telegram-web-app';
+import { telegramWebApp } from '@/shared/utils/telegramWebApp';
 import PlayerStats from '../components/PlayerStats/PlayerStats';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 import './game.scss';
 
 export default function Game() {
-  const [user, setUser] = React.useState<
-    Telegram['WebApp']['initDataUnsafe']['user'] | null
-  >(null);
+  const [user, setUser] = React.useState<any>(null); // временно any
 
   React.useEffect(() => {
-    telegramWebApp.ready();
-    telegramWebApp.expand();
+    if (typeof window !== 'undefined' && telegramWebApp) {
+      telegramWebApp.ready?.();
+      telegramWebApp.expand?.();
 
-    if (telegramWebApp.initDataUnsafe) {
-      setUser(telegramWebApp.initDataUnsafe.user);
+      if (telegramWebApp.initDataUnsafe?.user) {
+        setUser(telegramWebApp.initDataUnsafe.user);
+      }
     }
   }, []);
 
