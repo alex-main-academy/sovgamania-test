@@ -1,0 +1,18 @@
+.progress {
+  position: relative;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: 70px;
+  background-color: rgba(0, 21, 14, 0.7);
+
+  &::before {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    height: 100%;
+    width: calc(var(--app-progress-percentage-value) * 1%);
+    border-radius: inherit;
+    background-color: rgb(255, 43, 43);
+    content: '';
+  }
+}

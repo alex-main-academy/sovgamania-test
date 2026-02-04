@@ -1,0 +1,25 @@
+@mixin page-bottom-gradient {
+  &::before {
+    position: fixed;
+    inset-block-end: 0;
+    z-index: 1;
+    width: 100vw;
+    height: var(--app-body-before-height, 87px);
+    background-image: url('/images/layout-background.png');
+    background-repeat: repeat-x;
+    background-size: 100% auto;
+    background-position: center;
+    pointer-events: none;
+    content: '';
+  }
+}
+
+@mixin gradient-text {
+  background: linear-gradient(
+    90deg,
+    rgb(255, 215, 134) 0%,
+    rgb(210, 141, 50) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

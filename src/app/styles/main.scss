@@ -1,0 +1,18 @@
+body {
+  min-height: 100vh;
+  font-family: var(--font-nunito);
+  line-height: 1;
+  color: var(--app-primary-color);
+  background-image: url('/images/backgound.webp');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.container {
+  padding-inline: 16px;
+}
