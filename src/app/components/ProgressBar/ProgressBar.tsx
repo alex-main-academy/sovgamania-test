@@ -1,6 +1,6 @@
 import './ProgressBar.scss';
 
-export default function ProgressBar({ value }) {
+export default function ProgressBar({ value }: { value: number }) {
   return (
     <div
       className="progress"
