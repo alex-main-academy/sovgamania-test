@@ -1,10 +1,14 @@
+import { CSSProperties } from 'react';
 import './ProgressBar.scss';
 
-export default function ProgressBar({ value }: { value: number }) {
-  return (
-    <div
-      className="progress"
-      style={{ '--app-progress-percentage-value': value }}
-    ></div>
-  );
+interface ProgressBarProps {
+  value: number;
+}
+
+export default function ProgressBar({ value }: ProgressBarProps) {
+  const style: CSSProperties & { [key: `--${string}`]: string | number } = {
+    '--app-progress-percentage-value': value,
+  };
+
+  return <div className="progress" style={style}></div>;
 }
