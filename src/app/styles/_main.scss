@@ -1,6 +1,7 @@
 body {
   min-height: 100vh;
   font-family: var(--font-nunito);
+  font-weight: 900;
   line-height: 1;
   color: var(--app-primary-color);
   background-image: url('/images/backgound.webp');
@@ -15,4 +16,10 @@ body {
 
 .container {
   padding-inline: 16px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 900;
 }

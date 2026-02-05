@@ -21,7 +21,7 @@ export default function Menu() {
   ];
 
   useEffect(() => {
-    const navIndicatorWidth = 26;
+    const navIndicatorWidth = 28;
     const nav = navRef.current;
     if (!nav) return;
 

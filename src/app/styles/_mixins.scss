@@ -23,3 +23,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@mixin page-title {
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: center;
+}

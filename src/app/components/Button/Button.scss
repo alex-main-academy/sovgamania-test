@@ -1,0 +1,23 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 100%;
+  padding-inline: 16px;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--app-color-primary);
+  border-radius: 23px;
+
+  &--primary {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-image: var(--app-button-primary-backgorund);
+  }
+
+  &--secondary {
+    background-color: var(--app-button-secondary-backgorund);
+  }
+}

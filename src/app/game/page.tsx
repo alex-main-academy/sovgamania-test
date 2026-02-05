@@ -7,7 +7,7 @@ import ProgressBar from '../components/ProgressBar/ProgressBar';
 import './game.scss';
 
 export default function Game() {
-  const [user, setUser] = React.useState<any>(null); // временно any
+  const [user, setUser] = React.useState<any>(null);
 
   React.useEffect(() => {
     if (typeof window !== 'undefined' && telegramWebApp) {
