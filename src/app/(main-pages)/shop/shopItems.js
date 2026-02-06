@@ -1,0 +1,80 @@
+export const ShopPopularItems = [
+  {
+    id: 1,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '2m sõm',
+    imageUrl: '/images/shop/lucky-giftbox',
+  },
+  {
+    id: 2,
+    title: 'fortune giftbox',
+    value: '1 pcs',
+    label: '200k sõm',
+    imageUrl: '/images/shop/fortune-giftbox',
+  },
+  {
+    id: 3,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '2m sõm',
+    imageUrl: '/images/shop/lucky-giftbox',
+  },
+  {
+    id: 4,
+    title: 'fortune giftbox',
+    value: '1 pcs',
+    label: '200k sõm',
+    imageUrl: '/images/shop/fortune-giftbox',
+  },
+  {
+    id: 5,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '2m sõm',
+    imageUrl: '/images/shop/lucky-giftbox',
+  },
+];
+
+export const ShopStarSetItems = [
+  {
+    id: 1,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '50',
+    imageUrl: '/images/shared/lootbox',
+    isButtonIcon: true,
+  },
+  {
+    id: 2,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '50',
+    imageUrl: '/images/shared/lootbox',
+    isButtonIcon: true,
+  },
+  {
+    id: 3,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '50',
+    imageUrl: '/images/shared/lootbox',
+    isButtonIcon: true,
+  },
+  {
+    id: 4,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '50',
+    imageUrl: '/images/shared/lootbox',
+    isButtonIcon: true,
+  },
+  {
+    id: 5,
+    title: 'lucky giftbox',
+    value: '1 pcs',
+    label: '50',
+    imageUrl: '/images/shared/lootbox',
+    isButtonIcon: true,
+  },
+];

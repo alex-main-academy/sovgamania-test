@@ -1,0 +1,48 @@
+.link {
+  text-decoration: none;
+}
+
+.card {
+  display: grid;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background-color: var(--app-primary-background-color);
+}
+
+.card__image {
+  margin-inline: auto;
+  margin-block: 6px;
+}
+
+.card__title {
+  font-size: 12px;
+  margin-block-end: 6px;
+  letter-spacing: var(--app-letter-spacing-2);
+  text-transform: uppercase;
+}
+
+.card__value {
+  margin-block-end: 23px;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: rgb(180, 194, 190);
+}
+
+.card__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 140px;
+  padding-block: 6px;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--app-primary-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background-color: var(--app-primary-background-color);
+}

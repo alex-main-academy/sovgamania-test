@@ -26,7 +26,24 @@
 
 @mixin page-title {
   font-size: 30px;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--app-letter-spacing-2);
   text-transform: uppercase;
   text-align: center;
+}
+
+@mixin card-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 160px;
+  gap: 10px;
+  padding-block-end: 8px;
+  padding-inline-end: 16px;
+  overflow-x: auto;
+}
+
+@mixin card-lits-title {
+  margin-block-end: var(--app-card-list-title-margin-bottom, 9px);
+  font-size: 16px;
+  letter-spacing: var(--app-letter-spacing-2);
+  text-transform: uppercase;
 }

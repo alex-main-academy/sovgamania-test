@@ -1,6 +1,7 @@
 .player-stats__list {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 11px;
   padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -11,7 +12,7 @@
 .player-stats__item {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 1px;
   min-width: 0;
 }
 
@@ -26,6 +27,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 13px;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--app-letter-spacing-2);
   text-transform: uppercase;
 }

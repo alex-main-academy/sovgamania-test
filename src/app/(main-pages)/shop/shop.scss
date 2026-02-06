@@ -1,0 +1,44 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.shop {
+  @include mixins.page-bottom-gradient;
+
+  position: relative;
+  padding-block: 170px 120px;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    max-height: 160px;
+    background-image: url('/images/shop/background.svg');
+    background-repeat: repeat-x;
+    background-size: 440px;
+    background-position: top center;
+    pointer-events: none;
+    content: '';
+  }
+}
+
+.shop__title {
+  @include mixins.page-title;
+
+  margin-block-end: 14px;
+}
+
+.shop__content {
+  display: grid;
+  gap: 10px;
+}
+
+.shop__block {
+  padding-inline-start: 16px;
+  overflow-x: auto;
+}
+
+.shop__subtitle {
+  @include mixins.card-lits-title;
+}
+
+.shop__list {
+  @include mixins.card-list;
+}

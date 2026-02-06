@@ -1,0 +1,110 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.presents {
+  @include mixins.page-bottom-gradient;
+
+  padding-block: 120px;
+}
+
+.presents__title {
+  @include mixins.page-title;
+
+  margin-block-end: 24px;
+}
+
+.presents__block {
+  margin-block-end: 30px;
+  padding-inline-start: 16px;
+  overflow-x: auto;
+}
+
+.presents__subtitle {
+  @include mixins.card-lits-title;
+}
+
+.presents__list {
+  @include mixins.card-list;
+}
+
+.coupon {
+  margin-block-end: 30px;
+}
+
+.coupon__title {
+  @include mixins.card-lits-title;
+
+  --app-card-list-title-margin-bottom: 11px;
+}
+
+.coupon__block {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  background-color: var(--app-primary-background-color);
+}
+
+.coupon__image {
+  border-radius: 20px;
+  background-color: rgba(217, 217, 217, 1);
+}
+
+.coupon__name {
+  display: block;
+  margin-block-end: 10px;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.coupon__button {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: var(--app-letter-spacing-2);
+  text-transform: uppercase;
+  color: var(--app-primary-color);
+  border-radius: 50px;
+  background-image: var(--app-button-primary-backgorund);
+}
+
+.promo {
+  --app-button-min-height: 55px;
+
+  position: relative;
+  padding: 38px 20px 80px;
+  border: 1px solid rgb(240, 208, 135);
+  border-radius: 40px;
+  background: url('/images/presents/promo-background.png'), rgb(2, 46, 29);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      360deg,
+      rgba(21, 20, 20, 0.16) 0%,
+      rgba(31, 30, 30, 0.2) 100%
+    );
+    pointer-events: none;
+    content: '';
+  }
+}
+
+.promo__image {
+  display: block;
+  margin: 0 auto 32px;
+}
+
+.promo__title {
+  margin-block-end: 16px;
+  font-size: 17px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}

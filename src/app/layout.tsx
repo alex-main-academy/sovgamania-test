@@ -27,7 +27,7 @@ export default function RootLayout({
       />
       <body className={`${NunitoFont.variable} antialiased `}>
         {children}
-        <Menu />
+        {/* <Menu /> */}
       </body>
     </html>
   );
