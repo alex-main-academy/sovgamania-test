@@ -4,7 +4,7 @@ export default function PlayerStats() {
   const playerStatsItems = [
     { label: '25/800', icon: '/images/game/energy-icon', type: 'energy' },
     { label: '1986900112', icon: '/images/game/coin-icon', type: 'coins' },
-    { label: '9 123', icon: '/images/game/users-icon', type: 'users' },
+    { label: '9123', icon: '/images/game/users-icon', type: 'users' },
   ];
 
   function formatNumber(value: number): string {
@@ -52,7 +52,7 @@ export default function PlayerStats() {
             <img src={`${item.icon}.png`} width={23} height={23} alt="" />
           </picture>
           <span className="player-stats__text">
-            {item.type === 'coins'
+            {item.type === 'coins' || item.type === 'users'
               ? formatNumber(Number(item.label))
               : item.label}
           </span>

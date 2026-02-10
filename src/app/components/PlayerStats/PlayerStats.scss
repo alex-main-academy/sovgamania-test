@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 11px;
+  gap: 6px;
   padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 17px;
@@ -23,9 +23,6 @@
 .player-stats__text {
   min-width: 0;
   max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-size: 13px;
   letter-spacing: var(--app-letter-spacing-2);
   text-transform: uppercase;
