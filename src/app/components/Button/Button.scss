@@ -1,24 +1,15 @@
+@use '../../styles/mixins' as mixins;
+
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--app-button-min-height, 60px);
-  width: 100%;
-  padding-inline: 16px;
-  font-size: 16px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: var(--app-letter-spacing-2);
-  color: var(--app-color-primary);
-  border-radius: 23px;
+  @include mixins.button;
 
   &--primary {
     border: 1px solid rgba(255, 255, 255, 0.3);
-    background-image: var(--app-button-primary-backgorund);
+    background-image: var(--app-button-primary-background);
   }
 
   &--secondary {
-    background-color: var(--app-button-secondary-backgorund);
+    background-color: var(--app-button-secondary-background);
   }
 
   &--tertiary {

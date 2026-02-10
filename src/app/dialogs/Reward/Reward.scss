@@ -1,0 +1,114 @@
+@use '../../styles/mixins' as mixins;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  align-items: end;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+.reward {
+  position: relative;
+  margin-inline: 16px;
+  margin-block-end: 34px;
+  padding: 68px 19px 25px;
+  overflow: hidden;
+  background-image: url('/images/backgound.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/presents/promo-background.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top;
+    pointer-events: none;
+    content: '';
+  }
+}
+
+.reward__close {
+  position: absolute;
+  inset-block-start: 20px;
+  inset-inline-end: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background-color: rgb(96, 96, 96);
+}
+
+.reward__image {
+  display: block;
+  margin-inline: auto;
+  margin-block-end: 16px;
+}
+
+.reward__title {
+  margin-block-end: 10px;
+  font-size: 21px;
+  text-align: center;
+}
+
+.reward__description {
+  max-width: 300px;
+  margin-inline: auto;
+  margin-block-end: 18px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgb(208, 229, 222);
+}
+
+.reward__block {
+  padding-block: 12px 18px;
+  margin-block-end: 28px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  background-color: var(--app-primary-background-color);
+}
+
+.reward__subtitle {
+  margin-block-end: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.reward__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.reward__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reward__name {
+  @include mixins.gradient-text;
+
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.reward__buttons {
+  --app-button-min-height: 50px;
+
+  display: grid;
+  gap: 6px;
+}

@@ -5,6 +5,7 @@ import { telegramWebApp } from '@/shared/utils/telegramWebApp';
 import PlayerStats from '../../components/PlayerStats/PlayerStats';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import './game.scss';
+import Link from 'next/link';
 
 export default function Game() {
   const [user, setUser] = React.useState<any>(null);
@@ -27,12 +28,14 @@ export default function Game() {
       <div className="container">
         <h1 className="game__title">Sovğa Mania</h1>
         <div className="game__header">
-          <span className="game__description">HOLIDAY GIVEAWAY $1000</span>
-          <span className="game__level">0 LVL</span>
-          <div className="game__state">
-            <ProgressBar value={20} />
-            <span className="game__state-value">171,440 / 174,400</span>
-          </div>
+          <Link className="game__link" href="/giveaway">
+            <span className="game__description">HOLIDAY GIVEAWAY $1000</span>
+            <span className="game__level">0 LVL</span>
+            <div className="game__state">
+              <ProgressBar value={20} />
+              <span className="game__state-value">171,440 / 174,400</span>
+            </div>
+          </Link>
         </div>
         <div className="game__message">
           <div className="game__avatar">

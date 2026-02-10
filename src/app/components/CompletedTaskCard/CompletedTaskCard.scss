@@ -1,0 +1,42 @@
+.completed-card {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding-block: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background-color: var(--app-primary-background-color);
+}
+
+.completed-card__wrapper {
+  position: relative;
+}
+
+.completed-card__label {
+  position: absolute;
+  inset-inline-end: -2px;
+  inset-block-end: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding-inline: 6px;
+  font-size: 17px;
+  text-transform: uppercase;
+  border-radius: 16px;
+  background-color: var(--app-label-background);
+}
+
+.completed-card__title {
+  color: var(--app-secondary-color);
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.1;
+  text-align: center;
+
+  &--bottom {
+    display: block;
+    font-size: 14px;
+    color: var(--app-primary-color);
+  }
+}

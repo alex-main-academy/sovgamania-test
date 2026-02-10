@@ -1,0 +1,76 @@
+.roulette__window {
+  position: relative;
+  overflow: hidden;
+  padding-block: 94px 30px;
+}
+
+.roulette__track {
+  display: flex;
+  will-change: transform;
+}
+
+.roulette__item {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 183px;
+  height: 183px;
+  margin-right: 16px;
+  font-size: 24px;
+  border-radius: 46px;
+  background-color: rgba(0, 0, 0, 0.26);
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/spin/shine.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    pointer-events: none;
+    opacity: var(--app-roulette-item-before-opacity, 0);
+    transition: opacity 400ms;
+    content: '';
+  }
+
+  &.is-active {
+    --app-roulette-item-before-opacity: 1;
+  }
+}
+
+.roulette__window::after {
+  position: absolute;
+  inset-block-start: 60px;
+  inset-inline-start: 50%;
+  z-index: 1;
+  width: 215px;
+  height: 230px;
+  transform: translateX(-50%);
+  background-image: url('/images/spin/spin-win.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  pointer-events: none;
+  content: '';
+}
+
+.roulette__wrapper {
+  position: relative;
+}
+
+.roulette__label {
+  position: absolute;
+  inset-inline-end: -2px;
+  inset-block-end: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  padding-inline: 7px;
+  font-size: 21px;
+  text-transform: uppercase;
+  border-radius: 16px;
+  background-color: var(--app-label-background);
+}

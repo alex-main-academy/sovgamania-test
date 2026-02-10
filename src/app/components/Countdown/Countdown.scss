@@ -1,0 +1,53 @@
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.countdown__wrapper {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+}
+
+.countdown__block {
+  display: flex;
+  align-items: stretch;
+  gap: 3px;
+}
+
+.countdown__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 52px;
+  font-size: 34px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+        160deg,
+        rgba(189, 178, 255, 0) 12%,
+        rgba(189, 178, 255, 0.3) 87%
+      )
+      padding-box,
+    linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3))
+      border-box;
+}
+
+.countdown__separator {
+  margin-block-start: -18px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.countdown__period {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--app-letter-spacing-2);
+  text-transform: uppercase;
+}

@@ -19,7 +19,6 @@
 .game__header {
   position: relative;
   margin-block-end: 8px;
-  padding: 15px 16px 12px;
   border-image-source: url('/images/frames/level-frame.svg');
   border-image-repeat: stretch;
   border-image-slice: 0 fill;
@@ -48,6 +47,12 @@
     background-position: center;
     pointer-events: none;
   }
+}
+
+.game__link {
+  display: block;
+  padding: 15px 16px 12px;
+  text-decoration: none;
 }
 
 .game__description {

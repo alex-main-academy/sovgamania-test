@@ -9,6 +9,7 @@ interface shopItem {
   label: string;
   imageUrl: string;
   isButtonIcon?: boolean;
+  link?: string;
 }
 
 interface shopCardProps {
@@ -17,7 +18,7 @@ interface shopCardProps {
 
 export default function ShopCard({ item }: shopCardProps) {
   return (
-    <Link href="/lootbox" className="link card">
+    <Link href={item.link ? item.link : ''} className="link card">
       <picture>
         <source src={`${item.imageUrl}.webp`} type="image/webp" />
         <img

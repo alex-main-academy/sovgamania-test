@@ -7,7 +7,6 @@ import './Menu.scss';
 
 export default function Menu() {
   const pathname = usePathname();
-  const normalizedPathname = pathname === '/' ? '/game' : pathname;
   const navRef = useRef<HTMLElement>(null);
   const isFirstRender = useRef(true);
 
@@ -21,13 +20,17 @@ export default function Menu() {
   ];
 
   useEffect(() => {
-    const navIndicatorWidth = 28;
     const nav = navRef.current;
     if (!nav) return;
 
     const activeItem = nav.querySelector<HTMLLIElement>('[data-active="true"]');
-    if (!activeItem) return;
 
+    if (!activeItem) {
+      nav.style.setProperty('--indicator-width', '0px');
+      return;
+    }
+
+    const navIndicatorWidth = 28;
     const navRect = nav.getBoundingClientRect();
     const itemRect = activeItem.getBoundingClientRect();
 
@@ -48,13 +51,16 @@ export default function Menu() {
       '--indicator-width',
       `${itemRect.width + navIndicatorWidth}px`,
     );
-  }, [normalizedPathname]);
+  }, [pathname]);
 
   return (
     <nav className="navigation" ref={navRef}>
       <ul className="navigation__list">
         {menuItems.map((item) => {
-          const isActive = normalizedPathname === item.href;
+          const isActive =
+            item.href === '/game'
+              ? pathname === '/' || pathname === '/game'
+              : pathname === item.href;
 
           return (
             <li

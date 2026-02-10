@@ -1,0 +1,40 @@
+@use '../styles/mixins' as mixins;
+
+.prizes {
+  @include mixins.page-top-figure-background;
+
+  position: relative;
+  padding-block: 106px;
+}
+
+.prizes__title {
+  margin-block-end: 32px;
+  text-align: center;
+  font-size: 27px;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  &--top,
+  &--bottom {
+    display: block;
+  }
+
+  &--top {
+    @include mixins.gradient-text;
+
+    margin-block-end: 4px;
+    font-size: 30px;
+  }
+}
+
+.prizes__link {
+  @include mixins.button;
+  @include mixins.button-fixed;
+}
+
+.prizes__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+  gap: 10px;
+}

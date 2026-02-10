@@ -1,0 +1,166 @@
+@use '../../styles/mixins' as mixins;
+
+.giveaway-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 17px;
+  max-width: calc(100% - 46px);
+  padding: 7px;
+  padding-inline-end: 15px;
+  transform: translateX(46px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background-color: var(--app-primary-background-color);
+
+  &--ended {
+    border-color: var(--app-primary-color);
+  }
+
+  &--hot {
+    border-color: rgb(255, 0, 0);
+  }
+
+  &--last {
+    --app-giveaway-card-order-separator-display: none;
+  }
+}
+
+.giveaway-card__order {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: -48px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 24px;
+  font-size: 13px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 44px;
+  background-color: rgb(61, 50, 43);
+
+  &::before {
+    position: absolute;
+    inset-block-end: -86px;
+    inset-inline-start: 50%;
+    display: var(--app-giveaway-card-order-separator-display, block);
+    transform: translateX(-50%);
+    width: 4px;
+    height: 84px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+    content: '';
+  }
+}
+
+.giveaway-card__label {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding-inline: 22px;
+  font-size: 10px;
+  letter-spacing: var(--app-letter-spacing-2);
+  text-transform: uppercase;
+  border-start-start-radius: 16px;
+  border-end-end-radius: 16px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgb(204, 43, 43) 100%
+  );
+}
+
+.giveaway-card__content {
+  display: grid;
+
+  &--received {
+    gap: 8px;
+  }
+
+  &--future,
+  &--ended,
+  &--hot {
+    gap: 20px;
+  }
+}
+
+.giveaway-card__title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--app-letter-spacing-2);
+}
+
+.giveaway-card__received {
+  @include mixins.gradient-text;
+
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.giveaway-card__info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  &::before {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: -8px;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    content: '';
+  }
+}
+
+.giveaway-card__description {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--app-letter-spacing-2);
+  color: var(--app-secondary-color);
+}
+
+.giveaway-card__points {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &-value {
+    @include mixins.gradient-text;
+
+    font-weight: 800;
+  }
+}
+
+.giveaway-card__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding-inline: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--app-black-color);
+  border-radius: 16px;
+  background-color: var(--app-primary-color);
+}
+
+.giveaway-card__participating {
+  @include mixins.gradient-text;
+
+  font-size: 12px;
+  text-transform: uppercase;
+}

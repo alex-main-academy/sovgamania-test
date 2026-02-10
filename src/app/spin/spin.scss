@@ -1,0 +1,47 @@
+@use '../styles/mixins' as mixins;
+
+.spin {
+  @include mixins.page-top-figure-background;
+
+  padding-block: 124px;
+}
+
+.spin__link {
+  @include mixins.button;
+  @include mixins.button-fixed;
+}
+
+.spin__image {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.spin__info {
+  padding: 15px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  background-color: var(--app-primary-background-color);
+}
+
+.spin__title {
+  @include mixins.gradient-text;
+
+  margin-block-end: 7px;
+  font-size: 19px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.spin__description {
+  font-size: 12px;
+  text-transform: uppercase;
+
+  &--value {
+    @include mixins.gradient-text;
+
+    display: inline-block;
+    margin-inline-end: 4px;
+    line-height: 2;
+  }
+}

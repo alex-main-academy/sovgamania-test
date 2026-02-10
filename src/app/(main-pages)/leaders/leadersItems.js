@@ -1,0 +1,32 @@
+export const leadersItems = [
+  {
+    id: 1,
+    place: 1,
+    avatarImageUrl: '/images/leaders/avatar',
+    coinValue: 1928,
+    name: 'bunyod',
+    nameShort: 'bf',
+    city: 'Tashkent',
+    points: 14020,
+  },
+  {
+    id: 2,
+    place: 2,
+    avatarImageUrl: '/images/leaders/avatar',
+    coinValue: 1928,
+    name: 'bunyod',
+    nameShort: 'bf',
+    city: 'Tashkent',
+    points: 14020,
+  },
+  {
+    id: 3,
+    place: 3,
+    avatarImageUrl: '/images/leaders/avatar',
+    coinValue: 1928,
+    name: 'bunyod',
+    nameShort: 'bf',
+    city: 'Tashkent',
+    points: 14020,
+  },
+];

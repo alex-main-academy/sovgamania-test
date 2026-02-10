@@ -1,0 +1,107 @@
+@use '../../styles/mixins' as mixins;
+
+.tasks {
+  @include mixins.page-top-light-background;
+  @include mixins.page-bottom-gradient;
+
+  padding-block: 120px;
+  letter-spacing: var(--app-letter-spacing-2);
+}
+
+.tasks__title {
+  @include mixins.page-title;
+
+  margin-block-end: 34px;
+}
+
+.tasks__subtitle {
+  margin-block-end: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.tasks__list {
+  display: grid;
+  gap: 6px;
+}
+
+.tasks__item {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background-color: var(--app-primary-background-color);
+
+  &--done {
+    border: 2px solid var(--app-primary-color);
+  }
+}
+
+.tasks__header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-block-end: 24px;
+
+  &::before {
+    position: absolute;
+    inset-block-end: -4px;
+    inset-inline-start: 50px;
+    width: calc(100% - 50px);
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    content: '';
+  }
+}
+
+.tasks__name {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.tasks__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tasks__mission {
+  display: grid;
+  grid-template-columns: 21px max-content;
+  align-items: center;
+  gap: 5px;
+
+  &--last {
+    margin-inline-start: auto;
+  }
+}
+
+.tasks__submission {
+  @include mixins.gradient-text;
+
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.tasks__button {
+  display: block;
+  min-width: 84px;
+  padding-block: 9px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--app-primary-color);
+  border-radius: 50px;
+
+  &--dark {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+
+  &--light {
+    color: var(--app-black-color);
+    background-color: var(--app-primary-color);
+  }
+}

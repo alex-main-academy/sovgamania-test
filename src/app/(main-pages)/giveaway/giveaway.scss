@@ -1,0 +1,145 @@
+@use '../../styles/mixins' as mixins;
+
+.giveaway {
+  @include mixins.page-bottom-gradient;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.giveaway__animation {
+  position: absolute;
+  inset-block-start: -65px;
+  inset-inline-start: -70px;
+  z-index: 1;
+  width: 620px;
+  height: 350px;
+  transform: rotate(-10deg);
+  animation-name: light-animation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.giveaway__header {
+  position: relative;
+  height: 450px;
+  padding-block-start: 100px;
+  background-image: url('/images/giveaway/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    background-image:
+      url('/images/giveaway/trump-left.png'),
+      url('/images/giveaway/trump-right.png');
+    background-repeat: no-repeat;
+    background-size: 80px auto;
+    background-position:
+      top 55px left,
+      top 55px right;
+    content: '';
+  }
+}
+
+.giveaway__title {
+  position: relative;
+  margin-block-end: 10px;
+  font-size: 24px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-align: center;
+
+  &--big {
+    display: block;
+    font-size: 38px;
+  }
+}
+
+.giveaway__gift {
+  position: relative;
+  margin-block-start: -30px;
+  padding-block: 25px 290px;
+  border-start-start-radius: 40px;
+  border-start-end-radius: 40px;
+  background-color: rgb(21, 38, 22);
+}
+
+.giveaway__list {
+  display: grid;
+  gap: 10px;
+}
+
+.giveaway__participants {
+  position: fixed;
+  inset-inline-start: 50%;
+  inset-block-end: 94px;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 44px 1fr max-content;
+  align-items: center;
+  gap: 10px;
+  width: 344px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 60px;
+  background:
+    linear-gradient(rgb(3, 24, 17), rgb(3, 24, 17)) padding-box,
+    linear-gradient(
+        180deg,
+        rgb(0, 153, 181) 0%,
+        var(--app-primary-color) 25%,
+        var(--app-primary-color) 72%,
+        rgb(30, 181, 58) 100%
+      )
+      border-box;
+}
+
+.giveaway__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 14px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    90deg,
+    rgb(221, 143, 242) 0%,
+    rgb(227, 108, 250) 100%
+  );
+}
+
+.giveaway__description {
+  font-size: 13px;
+}
+
+.giveaway__members {
+  @include mixins.gradient-text;
+
+  font-size: 15px;
+}
+
+@keyframes light-animation {
+  0% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
+  }
+}

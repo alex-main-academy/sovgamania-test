@@ -5,6 +5,7 @@ export const ShopPopularItems = [
     value: '1 pcs',
     label: '2m sõm',
     imageUrl: '/images/shop/lucky-giftbox',
+    link: '/lootbox',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const ShopPopularItems = [
     value: '1 pcs',
     label: '200k sõm',
     imageUrl: '/images/shop/fortune-giftbox',
+    link: '/lootbox',
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const ShopPopularItems = [
     value: '1 pcs',
     label: '2m sõm',
     imageUrl: '/images/shop/lucky-giftbox',
+    link: '/lootbox',
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const ShopPopularItems = [
     value: '1 pcs',
     label: '200k sõm',
     imageUrl: '/images/shop/fortune-giftbox',
+    link: '/lootbox',
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const ShopPopularItems = [
     value: '1 pcs',
     label: '2m sõm',
     imageUrl: '/images/shop/lucky-giftbox',
+    link: '/lootbox',
   },
 ];
 
@@ -44,6 +49,7 @@ export const ShopStarSetItems = [
     label: '50',
     imageUrl: '/images/shared/lootbox',
     isButtonIcon: true,
+    link: '/spin',
   },
   {
     id: 2,
@@ -52,6 +58,7 @@ export const ShopStarSetItems = [
     label: '50',
     imageUrl: '/images/shared/lootbox',
     isButtonIcon: true,
+    link: '/spin',
   },
   {
     id: 3,
@@ -60,6 +67,7 @@ export const ShopStarSetItems = [
     label: '50',
     imageUrl: '/images/shared/lootbox',
     isButtonIcon: true,
+    link: '/spin',
   },
   {
     id: 4,
@@ -68,6 +76,7 @@ export const ShopStarSetItems = [
     label: '50',
     imageUrl: '/images/shared/lootbox',
     isButtonIcon: true,
+    link: '/spin',
   },
   {
     id: 5,
@@ -76,5 +85,6 @@ export const ShopStarSetItems = [
     label: '50',
     imageUrl: '/images/shared/lootbox',
     isButtonIcon: true,
+    link: '/spin',
   },
 ];

@@ -1,0 +1,64 @@
+@use '../styles/mixins' as mixins;
+
+.lootbox {
+  @include mixins.page-bottom-gradient;
+
+  padding-block: 100px 120px;
+}
+
+.lootbox__logo {
+  display: block;
+  margin-inline: auto;
+  margin-block-end: 10px;
+}
+
+.lootbox__header {
+  display: grid;
+  padding-block: 15px;
+  margin-block-end: 24px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  background-color: var(--app-primary-background-color);
+}
+
+.lootbox__title {
+  @include mixins.gradient-text;
+
+  margin-block-end: 8px;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+.lootbox__type {
+  margin-block-end: 10px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.lootbox__value {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: rgb(180, 194, 190);
+}
+
+.lootbox__subtitle {
+  margin-block-end: 17px;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.lootbox__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+
+.lootbox__link {
+  @include mixins.button;
+  @include mixins.button-fixed;
+}
