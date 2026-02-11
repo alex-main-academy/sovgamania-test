@@ -75,7 +75,7 @@
   --app-button-min-height: 55px;
 
   position: relative;
-  padding: 38px 20px 80px;
+  padding: 38px 20px 16px;
   border: 1px solid rgb(240, 208, 135);
   border-radius: 40px;
   background: url('/images/presents/promo-background.png'), rgb(2, 46, 29);
@@ -107,4 +107,30 @@
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
+}
+
+.promo__form {
+  --app-button-min-height: 44px;
+  --app-button-font-size: 14px;
+
+  display: grid;
+  gap: 20px;
+}
+
+.promo__input {
+  display: block;
+  width: 100%;
+  height: 55px;
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--app-primary-color);
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid rgb(102, 102, 102);
+  border-radius: 20px;
+  background-color: rgb(1, 42, 28);
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
 }

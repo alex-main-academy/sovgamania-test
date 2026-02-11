@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import ShopCard from '../../components/ShopCard/ShopCard';
-import Button from '../../components/Button/Button';
-import './presents.scss';
+import Image from 'next/image'
+import ShopCard from '../../components/ShopCard/ShopCard'
+import Button from '../../components/Button/Button'
+import './presents.scss'
 
 export default function Presents() {
   const presentsGiftItem = [
@@ -12,7 +12,7 @@ export default function Presents() {
       label: '2m sõm',
       imageUrl: '/images/shop/lucky-giftbox',
     },
-  ];
+  ]
 
   return (
     <div className="page presents">
@@ -51,16 +51,19 @@ export default function Presents() {
             <source srcSet="/images/presents/promo.webp" type="image/webp" />
             <img
               className="promo__image"
-              src="/images/presents/promo.jpg"
-              width="114"
-              height="84"
+              src="/images/presents/promo.png"
+              width="158"
+              height="116"
               alt=""
             />
           </picture>
           <h2 className="promo__title">enter promo code</h2>
-          <Button label="code" type="tertiary" />
+          <form className="promo__form">
+            <input className="promo__input" type="number" placeholder="code" />
+            <Button label="apply" type="primary" />
+          </form>
         </div>
       </div>
     </div>
-  );
+  )
 }

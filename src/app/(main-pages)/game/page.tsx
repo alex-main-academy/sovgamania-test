@@ -88,7 +88,7 @@ export default function Game() {
             </button>
           </li>
           <li className="game__menu-item">
-            <button className="game__menu-button">
+            <Link href="level-up" className="game__menu-button">
               <picture>
                 <source
                   srcSet="/images/game/road-icon.webp"
@@ -101,7 +101,7 @@ export default function Game() {
                   alt=""
                 />
               </picture>
-            </button>
+            </Link>
           </li>
         </ul>
         <PlayerStats />

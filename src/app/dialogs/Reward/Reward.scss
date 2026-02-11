@@ -2,6 +2,17 @@
 
 .overlay {
   @include mixins.dialog-overlay;
+
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  transition:
+    background-color 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+.overlay--show {
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
 }
 
 .reward {
@@ -16,6 +27,12 @@
   background-position: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 40px;
+  transform: translateY(120%);
+  opacity: 0;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+  will-change: transform, opacity;
 
   &::before {
     position: absolute;
@@ -29,8 +46,24 @@
   }
 }
 
+.reward--show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .reward__close {
   @include mixins.dialog-close-button;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.2s ease 0.15s,
+    transform 0.2s ease 0.15s;
+}
+
+.reward--show .reward__close {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .reward__image {
