@@ -10,14 +10,15 @@ export default function LevelUp() {
   const listRef = useRef<HTMLUListElement | null>(null)
 
   useEffect(() => {
-    let programmaticScroll = false
     const el = listRef.current
     if (!el) return
 
+    let programmaticScroll = false
     let animationId: number
     let direction = 1
     let userInteracting = false
-    let resumeTimeout: ReturnType<typeof setTimeout>
+    let resumeTimeout: ReturnType<typeof setTimeout> | undefined
+    let lastScrollLeft = el.scrollLeft
 
     const SPEED = 0.3
 
@@ -28,54 +29,62 @@ export default function LevelUp() {
         programmaticScroll = true
         el.scrollLeft += SPEED * direction
 
-        if (el.scrollLeft >= maxScroll()) {
-          direction = -1
-        }
-
-        if (el.scrollLeft <= 0) {
-          direction = 1
-        }
+        // Смена направления
+        if (el.scrollLeft >= maxScroll()) direction = -1
+        if (el.scrollLeft <= 0) direction = 1
       }
+
+      requestAnimationFrame(() => {
+        programmaticScroll = false
+      })
 
       animationId = requestAnimationFrame(animate)
     }
 
     animationId = requestAnimationFrame(animate)
 
+    const checkIfStopped = () => {
+      if (el.scrollLeft === lastScrollLeft) {
+        userInteracting = false
+      } else {
+        lastScrollLeft = el.scrollLeft
+        requestAnimationFrame(checkIfStopped)
+      }
+    }
+
     const stopAuto = () => {
       if (programmaticScroll) {
         programmaticScroll = false
         return
       }
-
       userInteracting = true
       clearTimeout(resumeTimeout)
     }
 
     const resumeAuto = () => {
-      clearTimeout(resumeTimeout)
-      resumeTimeout = setTimeout(() => {
-        userInteracting = false
-      }, 1200)
+      userInteracting = true
+      lastScrollLeft = el.scrollLeft
+      requestAnimationFrame(checkIfStopped)
     }
 
     el.addEventListener('touchstart', stopAuto, { passive: true })
     el.addEventListener('mousedown', stopAuto)
+    el.addEventListener('touchmove', stopAuto, { passive: true })
+    el.addEventListener('scroll', stopAuto, { passive: true })
     el.addEventListener('touchend', resumeAuto)
     el.addEventListener('mouseup', resumeAuto)
     el.addEventListener('mouseleave', resumeAuto)
-    el.addEventListener('scroll', stopAuto, { passive: true })
-    el.addEventListener('touchmove', stopAuto, { passive: true })
 
     return () => {
       cancelAnimationFrame(animationId)
+      clearTimeout(resumeTimeout)
       el.removeEventListener('touchstart', stopAuto)
       el.removeEventListener('mousedown', stopAuto)
+      el.removeEventListener('touchmove', stopAuto)
+      el.removeEventListener('scroll', stopAuto)
       el.removeEventListener('touchend', resumeAuto)
       el.removeEventListener('mouseup', resumeAuto)
       el.removeEventListener('mouseleave', resumeAuto)
-      el.removeEventListener('scroll', stopAuto)
-      el.removeEventListener('touchmove', stopAuto)
     }
   }, [])
 
