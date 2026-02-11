@@ -23,8 +23,14 @@ export default function Reward({ onClose }: rewardProps) {
   }
 
   return (
-    <div className={`overlay ${isOpen ? 'overlay--show' : ''}`}>
-      <div className={`reward ${isOpen ? 'reward--show' : ''}`}>
+    <div
+      className={`overlay ${isOpen ? 'overlay--show' : ''}`}
+      onClick={handleClose}
+    >
+      <div
+        className={`reward ${isOpen ? 'reward--show' : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button className="reward__close" onClick={handleClose}>
           <Image src="/icons/close.svg" width={12} height={12} alt="" />
         </button>

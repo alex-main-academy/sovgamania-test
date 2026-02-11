@@ -1,9 +1,14 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import ShopCard from '../../components/ShopCard/ShopCard'
 import Button from '../../components/Button/Button'
 import './presents.scss'
 
 export default function Presents() {
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
   const presentsGiftItem = [
     {
       id: 1,
@@ -14,11 +19,39 @@ export default function Presents() {
     },
   ]
 
+  useEffect(() => {
+    const input = inputRef.current
+    if (!input) return
+
+    const handleFocus = () => {
+      setTimeout(() => {
+        input.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+      }, 350)
+    }
+
+    input.addEventListener('focus', handleFocus)
+
+    return () => {
+      input.removeEventListener('focus', handleFocus)
+    }
+  }, [])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    inputRef.current?.blur()
+  }
+
   return (
     <div className="page presents">
       <h1 className="presents__title">presents</h1>
+
       <div className="presents__block">
         <h2 className="presents__subtitle">gift boxes</h2>
+
         <ul className="presents__list">
           {presentsGiftItem.map((item) => (
             <li key={item.id}>
@@ -27,6 +60,7 @@ export default function Presents() {
           ))}
         </ul>
       </div>
+
       <div className="container">
         <div className="coupon">
           <h2 className="coupon__title">coupons</h2>
@@ -34,8 +68,8 @@ export default function Presents() {
             <Image
               className="coupon__image"
               src="/icons/star.svg"
-              width="80"
-              height="80"
+              width={80}
+              height={80}
               alt=""
             />
             <div className="coupon__content">
@@ -58,8 +92,14 @@ export default function Presents() {
             />
           </picture>
           <h2 className="promo__title">enter promo code</h2>
-          <form className="promo__form">
-            <input className="promo__input" type="number" placeholder="code" />
+          <form className="promo__form" onSubmit={handleSubmit}>
+            <input
+              ref={inputRef}
+              className="promo__input"
+              type="text"
+              inputMode="numeric"
+              placeholder="code"
+            />
             <Button label="apply" type="primary" />
           </form>
         </div>

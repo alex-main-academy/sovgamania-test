@@ -34,8 +34,8 @@ export default function Build({ onClose }: buildProps) {
   }, [showTile])
 
   return (
-    <div className="overlay">
-      <div className="build container">
+    <div className="overlay" onClick={onClose}>
+      <div className="build container" onClick={(e) => e.stopPropagation()}>
         <div className="build__content">
           <button onClick={onClose} className="build__close">
             <Image src="/icons/close.svg" width="12" height="12" alt="" />
