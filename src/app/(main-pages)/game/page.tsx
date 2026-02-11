@@ -1,27 +1,37 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { telegramWebApp } from '@/shared/utils/telegramWebApp';
-import PlayerStats from '../../components/PlayerStats/PlayerStats';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
-import './game.scss';
-import Link from 'next/link';
+import React, { useState } from 'react'
+import { telegramWebApp } from '@/shared/utils/telegramWebApp'
+import PlayerStats from '../../components/PlayerStats/PlayerStats'
+import ProgressBar from '../../components/ProgressBar/ProgressBar'
+import Link from 'next/link'
+import Build from '@/app/dialogs/Build/Build'
+import './game.scss'
 
 export default function Game() {
-  const [user, setUser] = React.useState<any>(null);
+  const [user, setUser] = React.useState<any>(null)
+  const [isBuildOpen, setIsBuildOpen] = useState(false)
 
   React.useEffect(() => {
     if (typeof window !== 'undefined' && telegramWebApp) {
-      telegramWebApp.ready?.();
-      telegramWebApp.expand?.();
+      telegramWebApp.ready?.()
+      telegramWebApp.expand?.()
 
       if (telegramWebApp.initDataUnsafe?.user) {
-        setUser(telegramWebApp.initDataUnsafe.user);
+        setUser(telegramWebApp.initDataUnsafe.user)
       }
     }
-  }, []);
+  }, [])
 
-  const imageSize = 66;
+  const openReward = () => {
+    setIsBuildOpen(true)
+  }
+
+  const closeReward = () => {
+    setIsBuildOpen(false)
+  }
+
+  const imageSize = 66
 
   return (
     <div className="page game">
@@ -62,7 +72,7 @@ export default function Game() {
       <div className="game__menu">
         <ul className="game__menu-list">
           <li className="game__menu-item">
-            <button className="game__menu-button">
+            <button onClick={openReward} className="game__menu-button">
               <picture>
                 <source
                   srcSet="/images/game/home-icon.webp"
@@ -96,6 +106,7 @@ export default function Game() {
         </ul>
         <PlayerStats />
       </div>
+      {isBuildOpen && <Build onClose={closeReward} />}
     </div>
-  );
+  )
 }

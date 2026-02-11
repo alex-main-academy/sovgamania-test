@@ -1,0 +1,123 @@
+@use '../styles/mixins' as mixins;
+
+.level-up {
+  position: relative;
+  padding-block: 140px;
+  overflow: hidden;
+  background-image: url('/images/level-up/background.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top center;
+
+  &::before {
+    position: absolute;
+    inset-block-start: -394px;
+    inset-inline-start: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
+    width: 924px;
+    height: 1166px;
+    background-image: url('/images/light-background-big-animated.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    animation-name: light-animation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 8s;
+    pointer-events: none;
+    content: '';
+  }
+}
+
+.level-up__title {
+  margin-block-end: 16px;
+  text-align: center;
+  font-size: 72px;
+  text-transform: uppercase;
+}
+
+.level-up__level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 234px;
+  height: 234px;
+  margin: 0 auto 20px;
+  font-size: 78px;
+  text-transform: uppercase;
+  text-shadow:
+    2px 2px 0 var(--app-secondary-background-color),
+    -2px 2px 0 var(--app-secondary-background-color),
+    2px -2px 0 var(--app-secondary-background-color),
+    -2px -2px 0 var(--app-secondary-background-color),
+    2px 0 0 var(--app-secondary-background-color),
+    -2px 0 0 var(--app-secondary-background-color),
+    0 2px 0 var(--app-secondary-background-color),
+    0 -2px 0 var(--app-secondary-background-color);
+  background-image: url('/images/frames/level-up-frame.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  &-label {
+    font-size: 24px;
+  }
+}
+
+.level-up__subtitle {
+  margin-block-end: 10px;
+  font-size: 26px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.level-up__label {
+  display: block;
+  width: max-content;
+  margin: 0 auto 30px;
+  padding: 6px 20px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: lowercase;
+  color: var(--app-black-color);
+  border-radius: 16px;
+  background-color: rgb(255, 196, 106);
+}
+
+.level-up__list {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 14px;
+  overflow-x: auto;
+  padding-inline: 16px;
+}
+
+.level-up__link {
+  @include mixins.button;
+  @include mixins.button-fixed;
+}
+
+@keyframes light-animation {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-50%) rotate(5deg);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(-5deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
