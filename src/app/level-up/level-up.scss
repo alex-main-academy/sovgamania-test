@@ -89,10 +89,12 @@
 .level-up__list {
   display: grid;
   grid-auto-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 14px;
   overflow-x: auto;
   padding-inline: 16px;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .level-up__link {

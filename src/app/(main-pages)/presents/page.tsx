@@ -29,7 +29,7 @@ export default function Presents() {
           behavior: 'smooth',
           block: 'center',
         })
-      }, 350)
+      }, 150)
     }
 
     input.addEventListener('focus', handleFocus)
