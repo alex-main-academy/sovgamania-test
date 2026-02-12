@@ -87,14 +87,21 @@
 }
 
 .level-up__list {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: flex-start;
-  gap: 14px;
+  display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
+  gap: 14px;
   padding-inline: 16px;
   scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.level-up__track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  will-change: transform;
 }
 
 .level-up__link {

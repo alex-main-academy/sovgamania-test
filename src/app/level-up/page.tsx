@@ -13,78 +13,72 @@ export default function LevelUp() {
     const el = listRef.current
     if (!el) return
 
-    let programmaticScroll = false
-    let animationId: number
+    const track = el.querySelector<HTMLDivElement>('.level-up__track')
+    if (!track) return
+
+    let raf: number
     let direction = 1
     let userInteracting = false
-    let resumeTimeout: ReturnType<typeof setTimeout> | undefined
-    let lastScrollLeft = el.scrollLeft
+    let pos = el.scrollLeft
 
-    const SPEED = 0.3
+    const SPEED = 0.35
 
-    const maxScroll = () => el.scrollWidth - el.clientWidth
+    const max = () => track.scrollWidth - el.clientWidth
 
     const animate = () => {
       if (!userInteracting) {
-        programmaticScroll = true
-        el.scrollLeft += SPEED * direction
+        pos += SPEED * direction
 
-        // Смена направления
-        if (el.scrollLeft >= maxScroll()) direction = -1
-        if (el.scrollLeft <= 0) direction = 1
+        if (pos >= max()) {
+          pos = max()
+          direction = -1
+        }
+
+        if (pos <= 0) {
+          pos = 0
+          direction = 1
+        }
+
+        el.scrollLeft = pos
       }
 
-      requestAnimationFrame(() => {
-        programmaticScroll = false
-      })
-
-      animationId = requestAnimationFrame(animate)
+      raf = requestAnimationFrame(animate)
     }
 
-    animationId = requestAnimationFrame(animate)
+    raf = requestAnimationFrame(animate)
 
-    const checkIfStopped = () => {
-      if (el.scrollLeft === lastScrollLeft) {
-        userInteracting = false
-      } else {
-        lastScrollLeft = el.scrollLeft
-        requestAnimationFrame(checkIfStopped)
-      }
-    }
-
-    const stopAuto = () => {
-      if (programmaticScroll) {
-        programmaticScroll = false
-        return
-      }
+    const start = () => {
       userInteracting = true
-      clearTimeout(resumeTimeout)
     }
 
-    const resumeAuto = () => {
-      userInteracting = true
-      lastScrollLeft = el.scrollLeft
-      requestAnimationFrame(checkIfStopped)
+    const end = () => {
+      pos = el.scrollLeft
+      userInteracting = false
     }
 
-    el.addEventListener('touchstart', stopAuto, { passive: true })
-    el.addEventListener('mousedown', stopAuto)
-    el.addEventListener('touchmove', stopAuto, { passive: true })
-    el.addEventListener('scroll', stopAuto, { passive: true })
-    el.addEventListener('touchend', resumeAuto)
-    el.addEventListener('mouseup', resumeAuto)
-    el.addEventListener('mouseleave', resumeAuto)
+    const onScroll = () => {
+      if (userInteracting) {
+        pos = el.scrollLeft
+      }
+    }
+
+    el.addEventListener('touchstart', start, { passive: true })
+    el.addEventListener('mousedown', start)
+
+    el.addEventListener('touchend', end)
+    el.addEventListener('mouseup', end)
+    el.addEventListener('mouseleave', end)
+
+    el.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
-      cancelAnimationFrame(animationId)
-      clearTimeout(resumeTimeout)
-      el.removeEventListener('touchstart', stopAuto)
-      el.removeEventListener('mousedown', stopAuto)
-      el.removeEventListener('touchmove', stopAuto)
-      el.removeEventListener('scroll', stopAuto)
-      el.removeEventListener('touchend', resumeAuto)
-      el.removeEventListener('mouseup', resumeAuto)
-      el.removeEventListener('mouseleave', resumeAuto)
+      cancelAnimationFrame(raf)
+      el.removeEventListener('touchstart', start)
+      el.removeEventListener('mousedown', start)
+      el.removeEventListener('touchend', end)
+      el.removeEventListener('mouseup', end)
+      el.removeEventListener('mouseleave', end)
+      el.removeEventListener('scroll', onScroll)
     }
   }, [])
 
@@ -100,11 +94,13 @@ export default function LevelUp() {
       <h2 className="level-up__subtitle">unlocked</h2>
       <span className="level-up__label">3 new items</span>
       <ul className="level-up__list" ref={listRef}>
-        {levelUpNewItems.map((item) => (
-          <li key={item.id}>
-            <NewItemCard item={item} />
-          </li>
-        ))}
+        <div className="level-up__track">
+          {levelUpNewItems.map((item) => (
+            <li key={item.id}>
+              <NewItemCard item={item} />
+            </li>
+          ))}
+        </div>
       </ul>
       <Link href="/game" className="level-up__link">
         tap to continue
